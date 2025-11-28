@@ -4,12 +4,24 @@ CREATE TABLE Customer (
     City VARCHAR(50),
     Email VARCHAR(100)
 );
+INSERT INTO Customer VALUES (1, 'Amit Kumar', 'Delhi', 'amit@gmail.com');
+INSERT INTO Customer VALUES (2, 'Rohit Sharma', 'Mumbai', 'rohit@gmail.com');
+INSERT INTO Customer VALUES (3, 'Simran Kaur', 'Chandigarh', 'simran@gmail.com');
+INSERT INTO Customer VALUES (4, 'Priya Verma', 'Jaipur', 'priya@gmail.com');
+INSERT INTO Customer VALUES (5, 'Arjun Mehta', 'Bangalore', 'arjun@gmail.com');
 
 CREATE TABLE Loan (
     LoanID INT PRIMARY KEY,
     LoanType VARCHAR(50),
     BankName VARCHAR(50)
 );
+
+INSERT INTO Loan VALUES (101, 'Car', 'HDFC Bank');
+INSERT INTO Loan VALUES (102, 'Home', 'SBI Bank');
+INSERT INTO Loan VALUES (103, 'Education', 'ICICI Bank');
+INSERT INTO Loan VALUES (104, 'Car', 'Axis Bank');
+INSERT INTO Loan VALUES (105, 'Personal', 'Kotak Bank');
+
 
 CREATE TABLE Borrows (
     CustomerID INT,
@@ -19,6 +31,12 @@ CREATE TABLE Borrows (
     FOREIGN KEY (CustomerID) REFERENCES Customer(CustomerID),
     FOREIGN KEY (LoanID) REFERENCES Loan(LoanID)
 );
+
+INSERT INTO Borrows VALUES (1, 101, 500000);
+INSERT INTO Borrows VALUES (2, 102, 3500000);
+INSERT INTO Borrows VALUES (3, 103, 800000);
+INSERT INTO Borrows VALUES (4, 104, 450000);
+INSERT INTO Borrows VALUES (5, 105, 200000);
 
 CREATE OR REPLACE TRIGGER prevent_negative_loan_amount
 BEFORE INSERT OR UPDATE ON Borrows
