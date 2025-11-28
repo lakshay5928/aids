@@ -48,6 +48,10 @@ BEGIN
 END;
 /
 
+CREATE SEQUENCE customer_id_seq
+    START WITH 6
+    INCREMENT BY 1
+    MAXVALUE 8;
 
 
 INSERT INTO Customer(CustomerID, Name, City, Email)
